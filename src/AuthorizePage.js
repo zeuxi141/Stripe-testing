@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-const STRIPE_CLIENT_ID = process.env.CLIENT_ID || '';
+const STRIPE_CLIENT_ID = process.env.REACT_APP_CLIENT_ID || '';
+console.log('Using STRIPE_CLIENT_ID:', STRIPE_CLIENT_ID);
 
 function AuthorizePage() {
   const [searchParams] = useSearchParams();
