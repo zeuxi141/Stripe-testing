@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import AuthorizePage from './AuthorizePage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+      <div className="App">
+        <nav>
+          <Link to="/">Home</Link> | <Link to="/authorize">Test Authorize</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/authorize" element={<AuthorizePage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+function Home() {
+  return (
+    <div>
+      <h1>🧪 Stripe Connect OAuth Test</h1>
+      <p><a href="/authorize">Click /authorize → Xem raw HTML từ Stripe</a></p>
     </div>
   );
 }
